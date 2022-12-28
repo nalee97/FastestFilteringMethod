@@ -2,6 +2,7 @@
 
 using Bogus;
 using FastestFilteringMethod;
+using System.Diagnostics;
 
 Console.WriteLine("Testing the fastest way to filter from the list");
 
@@ -16,6 +17,7 @@ var listOfEmployees = new Faker<Employee>()
 
 
 /*
+ //run individually
 //print last 10 employees from the list
 Console.WriteLine("Print last 10 employees from the list");
 
@@ -27,9 +29,40 @@ foreach(var employee in listOfEmployees.Skip(listOfEmployees.Count-10))
 Console.ReadLine();
 */
 
+
+/*
+ //run individually
 //filter employee ages between 25-30
 
 var FilteredEmployee =listOfEmployees.Where(e =>e.Age >=  25 && e.Age <= 30).ToList();
 
 //print the count of filtered employee list
 Console.WriteLine($"Count of filtered Employee list : {FilteredEmployee.Count}");
+
+Console.ReadLine();
+*/
+
+//filter employee ages between 25-30
+var stopWatch = new Stopwatch();
+stopWatch.Start();
+var FilteredEmployee = listOfEmployees.Where(e => e.Age >= 25 && e.Age <= 30).ToList();
+stopWatch.Stop();
+Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks");
+
+
+var newFilteredList = new List<Employee>();
+stopWatch.Restart();
+foreach (var employee in listOfEmployees)
+{
+    if (employee.Age >= 25 && employee.Age <= 30)
+    {
+        newFilteredList.Add(employee);
+    }
+}
+ 
+stopWatch.Stop();
+Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks");
+
+//print the count of filtered employee list
+Console.WriteLine($"Count of filtered Employee list : {newFilteredList.Count}");
+Console.ReadLine();
