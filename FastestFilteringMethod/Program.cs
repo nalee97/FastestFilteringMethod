@@ -42,10 +42,13 @@ Console.WriteLine($"Count of filtered Employee list : {FilteredEmployee.Count}")
 Console.ReadLine();
 */
 
+
+/*
+ //run individually
 //filter employee ages between 25-30
 var stopWatch = new Stopwatch();
 stopWatch.Start();
-var FilteredEmployee = listOfEmployees.Where(e => e.Age >= 25 && e.Age <= 30).ToList();
+var FilteredEmployee = listOfEmployees.Where(e => e.Age is >= 25 and <= 30).ToList();
 stopWatch.Stop();
 Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks");
 
@@ -66,3 +69,37 @@ Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks")
 //print the count of filtered employee list
 Console.WriteLine($"Count of filtered Employee list : {newFilteredList.Count}");
 Console.ReadLine();
+
+*/
+
+//Convert listOfStudent as ReadOnly list
+var listOfEmployeesReadOnly = listOfEmployees.AsReadOnly();
+
+//Filter students between age 13 to 18
+var stopWatch = new Stopwatch();
+stopWatch.Start();
+var filteredEmployees = listOfEmployees.Where(e => e.Age is >= 25 and <= 30).ToList();
+stopWatch.Stop();
+Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks");
+
+stopWatch.Restart();
+var filteredEmployeesFromReadOnlyList = listOfEmployeesReadOnly.Where(e =>e.Age is >= 25 and <= 30);
+stopWatch.Stop();
+Console.WriteLine($"Time taken by ReadOnly List: {stopWatch.ElapsedTicks} ticks");
+
+var newFilteredList = new List<Employee>();
+stopWatch.Restart();
+foreach (var employee in listOfEmployees)
+{
+    if (employee.Age >= 25 && employee.Age <= 30)
+    {
+        newFilteredList.Add(employee);
+    }
+}
+stopWatch.Stop();
+Console.WriteLine($"Time taken by foreach method: {stopWatch.ElapsedTicks} ticks");
+
+// Print the count of filtered students list
+Console.WriteLine($"Count of filtered employees list: {newFilteredList.Count}");
+
+Console.ReadLine(); 
