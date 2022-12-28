@@ -1,11 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+
+using BenchmarkDotNet.Running;
 using Bogus;
 using FastestFilteringMethod;
 using System.Diagnostics;
 
 Console.WriteLine("Testing the fastest way to filter from the list");
 
+BenchmarkRunner.Run<ConvertDateToString>();
+
+/*
 var listOfEmployees = new Faker<Employee>()
     .RuleFor(e => e.Id, f => f.Random.Guid())
     .RuleFor(e => e.Name, f => f.Name.FirstName())
@@ -14,6 +19,8 @@ var listOfEmployees = new Faker<Employee>()
     .RuleFor(e => e.Email, f => f.Internet.Email())
     .RuleFor(e => e.Phone, f => f.Phone.PhoneNumber()
     ).Generate(1000);
+
+*/
 
 
 /*
