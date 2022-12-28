@@ -72,6 +72,9 @@ Console.ReadLine();
 
 */
 
+
+/*
+ //run individually
 //Convert listOfStudent as ReadOnly list
 var listOfEmployeesReadOnly = listOfEmployees.AsReadOnly();
 
@@ -103,3 +106,4 @@ Console.WriteLine($"Time taken by foreach method: {stopWatch.ElapsedTicks} ticks
 Console.WriteLine($"Count of filtered employees list: {newFilteredList.Count}");
 
 Console.ReadLine(); 
+*/
