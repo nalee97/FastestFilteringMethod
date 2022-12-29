@@ -7,7 +7,7 @@ using FastestFilteringMethod;
 using System.Diagnostics;
 using System.Text;
 
-//Console.WriteLine("Testing the fastest way to filter from the list");
+Console.WriteLine("Testing the fastest way to filter from the list");
 
 
 //Array of Random Alphabetical letter char array
@@ -76,7 +76,13 @@ public class Program
 
 */
 
+
+
 //BenchmarkRunner.Run<ConvertDateToString>();
+
+
+
+/******************************************************************************/
 
 /*
 var listOfEmployees = new Faker<Employee>()
