@@ -7,16 +7,74 @@ using FastestFilteringMethod;
 using System.Diagnostics;
 using System.Text;
 
-Console.WriteLine("Testing the fastest way to filter from the list");
+//Console.WriteLine("Testing the fastest way to filter from the list");
+
+
+public class Program
+{
+
+    // Function that returns the string s
+    // in sorted form such that the
+    // positions of alphabets and numeric
+    // digits remain unchanged
+    static string sort(string s)
+    {
+        char[] c = new char[s.Length + 1];
+
+        // String to character array
+        c = s.ToCharArray();
+
+        // Sort the array
+        Array.Sort(c);
+
+        // Count of alphabets and numbers
+        int al_c = 0, nu_c = 0;
+
+        // Get the index from where the
+        // alphabets start
+        while (c[al_c] < 97)
+            al_c++;
+
+        // Now replace the string with sorted string
+        for (int i = 0; i < s.Length; i++)
+        {
+
+            // If the position was occupied by an
+            // alphabet then replace it with alphabet
+            if (s[i] < 97)
+                s = s.Substring(0, i) + c[nu_c++] + s.Substring(i + 1);
+
+            // Else replace it with a number
+            else
+                s = s.Substring(0, i) + c[al_c++] + s.Substring(i + 1);
+        }
+
+        // Return the sorted string
+        return s;
+    }
+
+    // Driver code
+    public static void Main()
+    {
+        string s = "d4c3b2a1hguhjj5646544";
+
+        Console.WriteLine(sort(s));
+    }
+
+   
+}
+
 
 
 //Array of Random Alphabetical letter char array
+/*
 var randomAlphabeticalLetters = new Faker().Random.AlphaNumeric(1000).ToCharArray();
 
 foreach (var c in randomAlphabeticalLetters)
 {
     Console.Write(c + " ");
 }
+*/
 
 // char array of random int numbers with 20 elements
 
@@ -26,9 +84,10 @@ foreach (var c in randomIntNumbers)
 {
     Console.Write(c +" ");
 }
+
 */
 
-Console.ReadLine();
+//Console.ReadLine();
 
 /*
 public class Program
