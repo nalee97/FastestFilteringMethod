@@ -10,6 +10,9 @@ using System.Text;
 //Console.WriteLine("Testing the fastest way to filter from the list");
 
 
+
+
+/*
 public class Program
 {
 
@@ -63,18 +66,22 @@ public class Program
 
    
 }
+*/
 
 
 
 //Array of Random Alphabetical letter char array
-/*
+
 var randomAlphabeticalLetters = new Faker().Random.AlphaNumeric(1000).ToCharArray();
 
-foreach (var c in randomAlphabeticalLetters)
-{
-    Console.Write(c + " ");
-}
-*/
+var stopWatch = new Stopwatch();
+stopWatch.Start();
+Array.Sort(randomAlphabeticalLetters);
+
+stopWatch.Stop();
+Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks");
+
+
 
 // char array of random int numbers with 20 elements
 
