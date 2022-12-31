@@ -76,10 +76,20 @@ var randomAlphabeticalLetters = new Faker().Random.AlphaNumeric(1000).ToCharArra
 
 var stopWatch = new Stopwatch();
 stopWatch.Start();
+
+foreach (var c in randomAlphabeticalLetters)
+{
+    Console.Write(c + " ");
+}
+
+
 Array.Sort(randomAlphabeticalLetters);
 
 stopWatch.Stop();
+
 Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks");
+
+
 
 
 
