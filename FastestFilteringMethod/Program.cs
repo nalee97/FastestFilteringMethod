@@ -17,7 +17,7 @@ using System.Text;
 
 
 //Array of Random Alphabetical letter char array
-
+/*
 var randomAlphabeticalLetters = new Faker().Random.AlphaNumeric(1000).ToCharArray();
 
 var stopWatch = new Stopwatch();
@@ -35,7 +35,7 @@ stopWatch.Stop();
 
 Console.WriteLine($"Time taken by Where method: {stopWatch.ElapsedTicks} ticks");
 
-
+*/
 
 
 
@@ -52,7 +52,7 @@ foreach (var c in randomIntNumbers)
 
 //Console.ReadLine();
 
-/*
+
 public class Program
 {
 	
@@ -96,7 +96,7 @@ public class Program
     }
 }
 
-*/
+
 
 
 
