@@ -53,50 +53,6 @@ foreach (var c in randomIntNumbers)
 //Console.ReadLine();
 
 
-public class Program
-{
-	
-
-    //Random string using Concatenated GUIDs
-
-    internal static string GetRandomString(int stringLength)
-	{
-		StringBuilder sb = new StringBuilder();
-		int numGuidsToConcat = (((stringLength - 1) / 32) + 1);
-		Console.WriteLine("String Legnth: " + stringLength + "; Iteration Times: " + numGuidsToConcat);
-		for (int i = 1; i <= numGuidsToConcat; i++)
-		{
-			Console.WriteLine("Appending GUID");
-			sb.Append(Guid.NewGuid().ToString("N"));
-		}
-
-		Console.WriteLine(sb.ToString() + " -- Final Total Random String");
-		
-		return sb.ToString(0, stringLength);
-	}
-
-    public static void Main()
-    {
-
-        // Demo with different lengths
-        for (int x = 0; x < 100; x++)
-        {
-            Console.WriteLine("------------------------------");
-            string output = GetRandomString(x);
-            Console.WriteLine(output);
-        }
-
-        // Demo randomness
-        for (int x = 0; x < 100; x++)
-        {
-            Console.WriteLine(GetRandomString(64));
-        }
-
-
-    }
-}
-
-
 
 
 
